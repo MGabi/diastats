@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "635367447931",
+    "firebase_url": "https://diastats-bfad4.firebaseio.com",
+    "project_id": "diastats-bfad4",
+    "storage_bucket": "diastats-bfad4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635367447931:android:d711c7cecf3b27e4",
+        "android_client_info": {
+          "package_name": "space.healthdevs.diastats"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635367447931-r3662fhb8s3i4tlhlnruos2afacbma7l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "space.healthdevs.diastats",
+            "certificate_hash": "791cb8c0128cb574a0035a70e167b3243f5b2953"
+          }
+        },
+        {
+          "client_id": "635367447931-1gmrqjfagakneblklkssfp1gl9ddavnj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBnohHw6uzhC2bozLBzwKEE5E01fZ0dM1E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635367447931-1gmrqjfagakneblklkssfp1gl9ddavnj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,52 @@
+version: 2.0
+jobs:
+  build_and_release:
+    docker:
+      - image: circleci/android:api-27-alpha
+        environment:
+          GRADLE_OPTS: '-Dorg.gradle.jvmargs="-Xmx2048m -XX:+HeapDumpOnOutOfMemoryError"'
+    steps:
+      - checkout
+      - run: |
+            echo "CircleCI build and release"
+            chmod +x gradlew
+      - restore_cache:
+         key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run: |
+            touch app/src/develop/google-services.json
+            echo $SERVICES_DEVELOP | base64 --decode > app/src/develop/google-services.json
+            touch app/src/production_playStore/google-services.json
+            echo $SERVICES_PRODUCTION | base64 --decode > app/src/production_playStore/google-services.json
+            touch app/src/staging/google-services.json
+            echo $SERVICES_STAGING | base64 --decode > app/src/staging/google-services.json
+      - run:
+         name: Download Dependencies
+         command: ./gradlew androidDependencies
+      - save_cache:
+         paths:
+           - ~/.gradle
+         key: jars-{{ checksum "build.gradle" }}-{{ checksum  "app/build.gradle" }}
+      - run:
+         name: Run Tests
+         command: ./gradlew lint test
+      - store_test_results:
+               path: app/build/test-results
+               destination: test-results/
+      - run:
+         name: Initial build
+         command: ./gradlew clean assembleRelease --no-daemon --stacktrace
+      - store_artifacts:
+         path: app/build/outputs/apk/
+         destination: apks/
+      - run:
+         name: Release on Fabric
+         command: ./gradlew assembleRelease crashlyticsUploadDistributiondevelopRelease
+workflows:
+  version: 2
+  transreport-android:
+    jobs:
+      - build_and_release:
+          filters:
+            branches:
+              only:
+                - develop
