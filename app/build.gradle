@@ -35,6 +35,18 @@ dependencies {
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:16.0.1'
+
+    //Koin
+    def koin_version = "0.9.3"
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-architecture:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    //Retrofit
+    def retrofit_ver = "2.4.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
+
+
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
