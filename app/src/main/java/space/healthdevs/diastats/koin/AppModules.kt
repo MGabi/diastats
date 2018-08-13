@@ -10,5 +10,5 @@ object AppModules {
         bean { Repository::class }
     }
 
-    val modules = listOf(repositoryModule)
+    val modules = listOf(repositoryModule) 
 }
