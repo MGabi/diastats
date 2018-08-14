@@ -37,10 +37,20 @@ dependencies {
     implementation "com.android.support:support-media-compat:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
+
+    //RXJava
+    implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
+
+    //Koi
+    def koi_version = "0.5.5"
+    implementation "com.mcxiaoke.koi:core:$koi_version"
+    implementation "com.mcxiaoke.koi:async:$koi_version"
+
     //Leakcanary
-    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.6.1'
-    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.6.1'
-    debugImplementation 'com.squareup.leakcanary:leakcanary-support-fragment:1.6.1'
+    def leakcanary_version = "1.6.1"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
+    debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakcanary_version"
 
     //Firebase
     implementation 'com.google.firebase:firebase-core:16.0.1'
@@ -52,9 +62,11 @@ dependencies {
     testImplementation "org.koin:koin-test:$koin_version"
 
     //Retrofit
-    def retrofit_ver = "2.4.0"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
-
+    def retrofit_version = "2.4.0"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.google.code.gson:gson:2.8.5"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.10.0"
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'

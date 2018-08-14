@@ -14,10 +14,12 @@
     <style name="ToolbarTitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">@dimen/text_large</item>
         <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/open_sans_bold</item>
     </style>
 
     <style name="ToolbarSubtitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">@dimen/text_xsmall</item>
         <item name="android:textColor">@color/ui2</item>
+        <item name="android:fontFamily">@font/open_sans</item>
     </style>
 </resources>
