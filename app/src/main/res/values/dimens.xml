@@ -7,5 +7,9 @@
     <dimen name="text_large">24sp</dimen>
     <dimen name="text_xlarge">36dp</dimen>
     <!--Toolbar-->
-    <dimen name="toolbarElevation">6dp</dimen>
+    <dimen name="toolbar_elevation">6dp</dimen>
+    <!--Padding-->
+    <dimen name="half_content_padding">8dp</dimen>
+    <dimen name="content_padding">16dp</dimen>
+    <dimen name="double_content_padding">32dp</dimen>
 </resources>

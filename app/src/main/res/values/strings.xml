@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Diastats</string>
+    <string name="login">Login</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome</string>
 </resources>
