@@ -5,7 +5,7 @@
     </style>
 
     <style name="Toolbar" parent="Widget.AppCompat.Toolbar">
-        <item name="android:elevation">@dimen/toolbarElevation</item>
+        <item name="android:elevation">@dimen/toolbar_elevation</item>
         <item name="android:background">@color/white</item>
         <item name="titleTextAppearance">@style/ToolbarSubtitleTextAppearance</item>
         <item name="subtitleTextAppearance">@style/ToolbarTitleTextAppearance</item>
@@ -13,14 +13,11 @@
 
     <style name="ToolbarTitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">@dimen/text_large</item>
-        <item name="android:textColor">@color/primary</item>
+        <item name="android:textColor">@color/black</item>
     </style>
 
     <style name="ToolbarSubtitleTextAppearance" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:textSize">@dimen/text_xsmall</item>
-        <item name="android:textColor">@color/primary</item>
-        <item name="colorAccent">@color/secondary</item>
-        <item name="android:colorPrimary">@color/primary</item>
+        <item name="android:textColor">@color/ui2</item>
     </style>
-
 </resources>
