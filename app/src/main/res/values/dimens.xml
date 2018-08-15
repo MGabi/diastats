@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!--Text sizes-->
     <dimen name="text_xsmall">12sp</dimen>
-    <dimen name="text_small">14sp</dimen>
+    <dimen name="text_small" tools:keep="@dimen/text_small">14sp</dimen>
     <dimen name="text_medium">16sp</dimen>
     <dimen name="text_large">24sp</dimen>
-    <dimen name="text_xlarge">36dp</dimen>
+    <dimen name="text_xlarge" tools:keep="@dimen/text_xlarge">36sp</dimen>
     <!--Toolbar-->
     <dimen name="toolbar_elevation">6dp</dimen>
     <!--Padding-->

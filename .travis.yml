@@ -2,7 +2,7 @@ language: android
 jdk:
   - oraclejdk8
 
-warnings_are_errors: false
+warnings_are_errors: true
 
 notifications:
   email:
@@ -32,7 +32,8 @@ before_install:
   - echo no | avdmanager create avd --force -n test -k "system-images;android-21;default;armeabi-v7a"
   - $ANDROID_HOME/emulator/emulator -avd test -no-audio -no-window &
 
-install: ./gradlew clean assemble --stacktrace
+install:
+  ./gradlew clean assembleDevelopmentDebug --stacktrace
 
 before_script:
   - android-wait-for-emulator

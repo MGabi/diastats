@@ -10,15 +10,35 @@ android {
     defaultConfig {
         applicationId "space.healthdevs.diastats"
         minSdkVersion 21
+        //noinspection OldTargetApi
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        lintOptions {
+            abortOnError true
+        }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        development {
+            dimension "version"
+            applicationIdSuffix ".dev"
+            buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
+        }
+
+        production {
+            dimension "version"
+            applicationIdSuffix ".prod"
+            buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
         }
     }
 }
@@ -37,7 +57,6 @@ dependencies {
     implementation "com.android.support:support-media-compat:$support_version"
     implementation 'com.android.support.constraint:constraint-layout:1.1.2'
 
-
     //RXJava
     implementation 'io.reactivex.rxjava2:rxkotlin:2.2.0'
 
@@ -51,9 +70,6 @@ dependencies {
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakcanary_version"
     releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakcanary_version"
     debugImplementation "com.squareup.leakcanary:leakcanary-support-fragment:$leakcanary_version"
-
-    //Firebase
-    implementation 'com.google.firebase:firebase-core:16.0.1'
 
     //Koin
     def koin_version = "0.9.3"
@@ -72,5 +88,3 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
-
-apply plugin: 'com.google.gms.google-services'
