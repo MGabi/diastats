@@ -34,8 +34,8 @@ android {
 
         production {
             dimension "version"
-            applicationId ".prod"
-            buildConfigField 'String', 'BASE_URL', '"-"'
+            applicationIdSuffix ".prod"
+            buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
         }
     }
 }
