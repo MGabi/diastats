@@ -33,12 +33,18 @@ android {
             dimension "version"
             applicationIdSuffix ".dev"
             buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
+            buildConfigField 'String', 'COGNITO_POOL_ID', '"eu-west-2_LqELfKX1a"'
+            buildConfigField 'String', 'COGNITO_CLIENT_ID', '"4d5tb24vnbb6l6c17m1j801blg"'
+            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', '"j3ej5lloor6e5nbq5fo5iia5q0fd28b3ununupbokc8cs4cohf4"'
         }
 
         production {
             dimension "version"
             applicationIdSuffix ".prod"
             buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
+            buildConfigField 'String', 'COGNITO_POOL_ID', '"eu-west-2_LqELfKX1a"'
+            buildConfigField 'String', 'COGNITO_CLIENT_ID', '"4d5tb24vnbb6l6c17m1j801blg"'
+            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', '"j3ej5lloor6e5nbq5fo5iia5q0fd28b3ununupbokc8cs4cohf4"'
         }
     }
 }
@@ -49,6 +55,7 @@ dependencies {
 
     def support_version = "27.1.1"
     implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:customtabs:$support_version"
     implementation "com.android.support:cardview-v7:$support_version"
     implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "com.android.support:support-vector-drawable:$support_version"
@@ -64,6 +71,12 @@ dependencies {
     def koi_version = "0.5.5"
     implementation "com.mcxiaoke.koi:core:$koi_version"
     implementation "com.mcxiaoke.koi:async:$koi_version"
+
+    //AWS
+    def aws_version = "2.6.27"
+    implementation "com.amazonaws:aws-android-sdk-cognito:$aws_version"
+    implementation "com.amazonaws:aws-android-sdk-cognitoauth:$aws_version"
+    implementation "com.amazonaws:aws-android-sdk-cognitoidentityprovider:$aws_version"
 
     //Leakcanary
     def leakcanary_version = "1.6.1"
