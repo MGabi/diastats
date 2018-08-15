@@ -1,6 +1,5 @@
 package space.healthdevs.diastats.repo
 
-import android.arch.lifecycle.LiveData
 import org.koin.standalone.KoinComponent
 import org.koin.standalone.inject
 import retrofit2.Call

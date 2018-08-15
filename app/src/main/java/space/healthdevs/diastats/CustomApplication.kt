@@ -7,6 +7,7 @@ import com.squareup.leakcanary.LeakCanary
 import org.koin.android.ext.android.startKoin
 import space.healthdevs.diastats.koin.AppModules
 
+@Suppress("unused")
 class CustomApplication : Application() {
 
     override fun onCreate() {

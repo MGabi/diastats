@@ -30,9 +30,9 @@
                 android:layout_height="200dp"
                 android:fontFamily="@font/open_sans_bold"
                 android:gravity="center"
-                android:text="Diastats"
+                android:text="@string/app_name"
                 android:textColor="@color/black"
-                android:textSize="72dp"
+                android:textSize="72sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />

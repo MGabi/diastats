@@ -1,6 +1,5 @@
 package space.healthdevs.diastats.ui.login
 
-import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import org.koin.standalone.KoinComponent
