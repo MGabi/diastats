@@ -44,8 +44,8 @@ before_script:
 
 script:
   - ./gradlew lint test
-  - ./gradlew test --stacktrace
-  - ./gradlew connectedAndroidTest --stacktrace
+  - ./gradlew testDevelopmentDebugUnitTest --stacktrace
+  - ./gradlew connectedDevelopmentDebugAndroidTest --stacktrace
 cache:
   directories:
     - $HOME/.gradle
