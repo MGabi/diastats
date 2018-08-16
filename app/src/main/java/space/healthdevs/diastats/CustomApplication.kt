@@ -19,12 +19,12 @@ class CustomApplication : Application() {
         if (LeakCanary.isInAnalyzerProcess(this)) {
             return
         }
+        LeakCanary.install(this)
         userPool = CognitoUserPool(this,
                 BuildConfig.COGNITO_POOL_ID,
                 BuildConfig.COGNITO_CLIENT_ID,
                 BuildConfig.COGNITO_CLIENT_SECRET,
                 Regions.EU_WEST_2)
-        LeakCanary.install(this)
         KoiConfig.logEnabled = true //default is false
         KoiConfig.logLevel = Log.VERBOSE
         startKoin(this, AppModules.modules)
