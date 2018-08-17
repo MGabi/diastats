@@ -5,15 +5,31 @@ import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.widget.Toast
 import com.mcxiaoke.koi.ext.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import space.healthdevs.diastats.R
 import space.healthdevs.diastats.models.User
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(){
     private lateinit var viewModel: LoginViewModel
     private var currentEmail: String = ""
     private var currentPass: String = ""
+
+    private val userLoggedObserver = Observer<List<User>> { users ->
+        if (users?.size == 0 || users == null) {
+            toast("Empty")
+            return@Observer
+        }
+        users.forEach {
+            if (it.email == currentEmail && it.password == currentPass) {
+                toast("Correct user")
+                return@Observer
+            }
+        }
+        toast("Wrong user")
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,16 +52,11 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.usersObservable.observe(this, Observer<List<User>> { users ->
-            if (users?.size == 0 || users == null)
-                return@Observer
-            users.forEach {
-                if (it.email == currentEmail && it.password == currentPass) {
-                    toast("User exists!")
-                    return@Observer
-                }
-            }
-            toast("User doesn't exists")
-        })
+        viewModel.usersObservable.observe(this, userLoggedObserver)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        viewModel.usersObservable.removeObserver(userLoggedObserver)
     }
 }
