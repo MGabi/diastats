@@ -2,17 +2,16 @@ package space.healthdevs.diastats.ui.login
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
-import android.widget.Toast
 import com.mcxiaoke.koi.ext.toast
 import kotlinx.android.synthetic.main.activity_login.*
 import space.healthdevs.diastats.R
 import space.healthdevs.diastats.models.User
+import space.healthdevs.diastats.ui.register.RegisterActivity
 
-class LoginActivity : AppCompatActivity(){
+class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
     private var currentEmail: String = ""
     private var currentPass: String = ""
@@ -40,14 +39,14 @@ class LoginActivity : AppCompatActivity(){
     }
 
     private fun setupViews() {
-        act_login_button_login.setOnClickListener {
+        act_login_btn_login.setOnClickListener {
             currentEmail = act_login_et_email.text.toString()
             currentPass = act_login_et_password.text.toString()
             viewModel.fetchUsers()
         }
 
-        act_login_button_register.setOnClickListener {
-            Snackbar.make(act_login_main_layout, "Register!", Snackbar.LENGTH_SHORT).show()
+        act_login_btn_register.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
 
