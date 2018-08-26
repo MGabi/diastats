@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">Diastats</string>
     <string name="login">Login</string>
     <string name="email_address">Email address</string>
@@ -6,6 +6,6 @@
     <string name="register">Register</string>
     <string name="welcome">Welcome</string>
     <string name="lets_get_started">Let\'s get started</string>
-    <string name="confirm_email">Confirm email</string>
+    <string name="confirm_email" tools:keep="@string/confirm_email">Confirm email</string>
     <string name="confirm_password">Confirm password</string>
 </resources>

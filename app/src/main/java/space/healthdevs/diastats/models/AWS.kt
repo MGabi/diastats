@@ -1,4 +1,4 @@
 package space.healthdevs.diastats.models
 
-data class SignupState(val success: Boolean = false,
-                       val message: String = "")
+data class CognitoUserState(val success: Boolean = false,
+                            val message: String = "")

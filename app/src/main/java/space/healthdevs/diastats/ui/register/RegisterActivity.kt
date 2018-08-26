@@ -9,12 +9,12 @@ import com.mcxiaoke.koi.ext.onClick
 import kotlinx.android.synthetic.main.activity_register.*
 import space.healthdevs.diastats.CustomApplication
 import space.healthdevs.diastats.R
-import space.healthdevs.diastats.models.SignupState
+import space.healthdevs.diastats.models.CognitoUserState
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var viewModel: RegisterViewModel
-    private val signupStateObserver = Observer<SignupState> {
+    private val signupStateObserver = Observer<CognitoUserState> {
         it?.let { state ->
             act_register_btn_register.isEnabled = true
             longToast(state.message)
@@ -33,7 +33,7 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun observe() {
-        viewModel.signupStateObservable.observe(this, signupStateObserver)
+        viewModel.cognitoUserStateObservable.observe(this, signupStateObserver)
     }
 
     private fun setupViews() {
@@ -52,6 +52,6 @@ class RegisterActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        viewModel.signupStateObservable.removeObserver(signupStateObserver)
+        viewModel.cognitoUserStateObservable.removeObserver(signupStateObserver)
     }
 }
