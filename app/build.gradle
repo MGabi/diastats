@@ -74,6 +74,7 @@ dependencies {
 
     //AWS
     def aws_version = "2.6.27"
+    implementation "com.amazonaws:aws-android-sdk-core:$aws_version"
     implementation "com.amazonaws:aws-android-sdk-cognito:$aws_version"
     implementation "com.amazonaws:aws-android-sdk-cognitoauth:$aws_version"
     implementation "com.amazonaws:aws-android-sdk-cognitoidentityprovider:$aws_version"

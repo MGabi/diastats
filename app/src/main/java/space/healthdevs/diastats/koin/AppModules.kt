@@ -5,10 +5,10 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.dsl.module.Module
 import org.koin.dsl.module.applicationContext
-import space.healthdevs.diastats.repo.Repository
-import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import space.healthdevs.diastats.BuildConfig
+import space.healthdevs.diastats.repo.Repository
 import space.healthdevs.diastats.repo.remote.UsersAPI
 
 object AppModules {
