@@ -23,7 +23,7 @@ sudo: false
 before_install:
   - touch app/gradle.properties && echo $GRADLE_PROPERTIES | > app/gradle.properties
   - base64 --decode app/gradle.properties | > app/gradle.properties
-  - ls app/
+  - cat app/gradle.properties
   # Install SDK license so Android Gradle plugin can install deps.
   - mkdir "$ANDROID_HOME/licenses" || true
   - echo "d56f5187479451eabf01fb78af6dfcb131a6481e" > "$ANDROID_HOME/licenses/android-sdk-license"

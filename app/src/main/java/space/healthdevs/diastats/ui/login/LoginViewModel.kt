@@ -20,9 +20,8 @@ import space.healthdevs.diastats.utils.hasPasswordPatternFromAws
 class LoginViewModel : ViewModel(), KoinComponent {
 
     val cognitoUserStateObservable: MutableLiveData<CognitoUserState> = MutableLiveData()
-
-    private var email: String = ""
     private var password: String = ""
+
     private val authHandler = object : AuthenticationHandler {
         override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
             cognitoUserStateObservable.value = CognitoUserState(true,
@@ -59,7 +58,6 @@ class LoginViewModel : ViewModel(), KoinComponent {
     fun signInUser(userPool: CognitoUserPool, email: String, password: String) {
         if (email.hasEmailPattern()) {
             if (password.hasPasswordPatternFromAws()) {
-                this.email = email
                 this.password = password
                 userPool.getUser(email).signOut()
                 userPool.getUser(email).getSessionInBackground(authHandler)
