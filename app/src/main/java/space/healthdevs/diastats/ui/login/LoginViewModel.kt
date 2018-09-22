@@ -10,19 +10,18 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Auth
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.ChallengeContinuation
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.MultiFactorAuthenticationContinuation
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler
+import com.amazonaws.services.cognitoidentityprovider.model.UserNotConfirmedException
 import com.mcxiaoke.koi.log.logd
 import org.koin.standalone.KoinComponent
 import space.healthdevs.diastats.models.CognitoUserState
 import space.healthdevs.diastats.utils.hasEmailPattern
 import space.healthdevs.diastats.utils.hasPasswordPatternFromAws
-import java.lang.Exception
 
 class LoginViewModel : ViewModel(), KoinComponent {
 
     val cognitoUserStateObservable: MutableLiveData<CognitoUserState> = MutableLiveData()
-
-    private var email: String = ""
     private var password: String = ""
+
     private val authHandler = object : AuthenticationHandler {
         override fun onSuccess(userSession: CognitoUserSession?, newDevice: CognitoDevice?) {
             cognitoUserStateObservable.value = CognitoUserState(true,
@@ -31,8 +30,12 @@ class LoginViewModel : ViewModel(), KoinComponent {
         }
 
         override fun onFailure(exception: Exception?) {
-            cognitoUserStateObservable.value = CognitoUserState(false,
-                    "Something went wrong, try again later!")
+            if (exception is UserNotConfirmedException)
+                cognitoUserStateObservable.value = CognitoUserState(false,
+                        "You need to confirm your email before login!")
+            else
+                cognitoUserStateObservable.value = CognitoUserState(false,
+                        "Something went wrong, try again later!")
             logd("LoginViewModel", "Exception: $exception")
         }
 
@@ -55,7 +58,6 @@ class LoginViewModel : ViewModel(), KoinComponent {
     fun signInUser(userPool: CognitoUserPool, email: String, password: String) {
         if (email.hasEmailPattern()) {
             if (password.hasPasswordPatternFromAws()) {
-                this.email = email
                 this.password = password
                 userPool.getUser(email).signOut()
                 userPool.getUser(email).getSessionInBackground(authHandler)

@@ -32,19 +32,19 @@ android {
         development {
             dimension "version"
             applicationIdSuffix ".dev"
-            buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
-            buildConfigField 'String', 'COGNITO_POOL_ID', '"eu-west-2_LqELfKX1a"'
-            buildConfigField 'String', 'COGNITO_CLIENT_ID', '"4d5tb24vnbb6l6c17m1j801blg"'
-            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', '"j3ej5lloor6e5nbq5fo5iia5q0fd28b3ununupbokc8cs4cohf4"'
+            buildConfigField 'String', 'BASE_URL', "$baseUrlDev"
+            buildConfigField 'String', 'COGNITO_POOL_ID', "$awsCognitoPoolIdDev"
+            buildConfigField 'String', 'COGNITO_CLIENT_ID', "$awsCognitoClientIdDev"
+            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', "$awsCognitoClientSecretDev"
         }
 
         production {
             dimension "version"
             applicationIdSuffix ".prod"
-            buildConfigField 'String', 'BASE_URL', '"https://5b734b0e414e970014304b54.mockapi.io/api/v1/"'
-            buildConfigField 'String', 'COGNITO_POOL_ID', '"eu-west-2_LqELfKX1a"'
-            buildConfigField 'String', 'COGNITO_CLIENT_ID', '"4d5tb24vnbb6l6c17m1j801blg"'
-            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', '"j3ej5lloor6e5nbq5fo5iia5q0fd28b3ununupbokc8cs4cohf4"'
+            buildConfigField 'String', 'BASE_URL', "$baseUrlProd"
+            buildConfigField 'String', 'COGNITO_POOL_ID', "$awsCognitoPoolIdProduction"
+            buildConfigField 'String', 'COGNITO_CLIENT_ID', "$awsCognitoClientIdProduction"
+            buildConfigField 'String', 'COGNITO_CLIENT_SECRET', "$awsCognitoClientSecretProduction"
         }
     }
 }
