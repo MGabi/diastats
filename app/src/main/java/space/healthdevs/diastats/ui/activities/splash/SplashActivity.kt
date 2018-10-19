@@ -1,11 +1,11 @@
-package space.healthdevs.diastats.ui.splash
+package space.healthdevs.diastats.ui.activities.splash
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import space.healthdevs.diastats.R
-import space.healthdevs.diastats.ui.login.LoginActivity
+import space.healthdevs.diastats.ui.activities.login.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

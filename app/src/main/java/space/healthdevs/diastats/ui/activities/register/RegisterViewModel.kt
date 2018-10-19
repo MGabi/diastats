@@ -1,4 +1,4 @@
-package space.healthdevs.diastats.ui.register
+package space.healthdevs.diastats.ui.activities.register
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel

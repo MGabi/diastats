@@ -1,4 +1,4 @@
-package space.healthdevs.diastats.ui.login
+package space.healthdevs.diastats.ui.activities.login
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
@@ -10,7 +10,8 @@ import kotlinx.android.synthetic.main.activity_login.*
 import space.healthdevs.diastats.CustomApplication
 import space.healthdevs.diastats.R
 import space.healthdevs.diastats.models.CognitoUserState
-import space.healthdevs.diastats.ui.register.RegisterActivity
+import space.healthdevs.diastats.ui.activities.main.MainActivity
+import space.healthdevs.diastats.ui.activities.register.RegisterActivity
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var viewModel: LoginViewModel
@@ -22,6 +23,7 @@ class LoginActivity : AppCompatActivity() {
             act_login_btn_login.isEnabled = true
             longToast(userState.message)
             if (userState.success) {
+                startActivity(Intent(this, MainActivity::class.java))
                 //login successful, proceed to next screen with currentEmail
             }
         }
