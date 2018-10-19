@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    buildToolsVersion '28.0.3'
     defaultConfig {
         applicationId "space.healthdevs.diastats"
         minSdkVersion 21
@@ -73,7 +73,7 @@ dependencies {
     implementation "com.mcxiaoke.koi:async:$koi_version"
 
     //AWS
-    def aws_version = "2.6.27"
+    def aws_version = "2.6.31"
     implementation "com.amazonaws:aws-android-sdk-core:$aws_version"
     implementation "com.amazonaws:aws-android-sdk-cognito:$aws_version"
     implementation "com.amazonaws:aws-android-sdk-cognitoauth:$aws_version"
