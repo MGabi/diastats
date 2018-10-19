@@ -16,10 +16,12 @@ class CustomApplication : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        if (LeakCanary.isInAnalyzerProcess(this)) {
-            return
+        if (BuildConfig.DEBUG) {
+            if (LeakCanary.isInAnalyzerProcess(this)) {
+                return
+            }
+            LeakCanary.install(this)
         }
-        LeakCanary.install(this)
         userPool = CognitoUserPool(this,
                 BuildConfig.COGNITO_POOL_ID,
                 BuildConfig.COGNITO_CLIENT_ID,
